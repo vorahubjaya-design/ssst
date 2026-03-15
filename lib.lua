@@ -494,6 +494,7 @@ function Noxius:Window(GuiConfig)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
     GuiConfig.Icon         = GuiConfig.Icon or "rbxassetid://104845791898751"
+    GuiConfig.Image       = GuiConfig.Image or "104845791898751"
 
     CURRENT_VERSION        = GuiConfig.Version
     -- LoadConfigFromFile()
