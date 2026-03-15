@@ -494,6 +494,7 @@ function LexsHub:Window(GuiConfig)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
     GuiConfig.Icon         = GuiConfig.Icon or "rbxassetid://104845791898751"
+    GuiConfig.Theme       = GuiConfig.Theme or "16787098319"
 
     CURRENT_VERSION        = GuiConfig.Version
     -- LoadConfigFromFile()
@@ -602,9 +603,10 @@ function LexsHub:Window(GuiConfig)
     TitleIcon.BackgroundTransparency = 1
     TitleIcon.BorderSizePixel = 0
     TitleIcon.AnchorPoint = Vector2.new(0, 0.5)
-    TitleIcon.Position = UDim2.new(0, 10, 0.5, 0) 
-    TitleIcon.Size = UDim2.new(0, 20, 0, 20)
+    TitleIcon.Position = UDim2.new(0, 10, 0.5, 0)
+    TitleIcon.Size = UDim2.new(0, 32, 0, 32)
     TitleIcon.Image = GuiConfig.Icon
+    TitleIcon.ScaleType = Enum.ScaleType.Fit
 
     local ImageWrapper = Instance.new("Frame")
     ImageWrapper.Name = "ImageWrapper"
@@ -646,8 +648,8 @@ function LexsHub:Window(GuiConfig)
     TextLabel.BackgroundTransparency = 0.999
     TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TextLabel.BorderSizePixel = 0
-    TextLabel.Size = UDim2.new(1, -135, 1, 0) 
-    TextLabel.Position = UDim2.new(0, 35, 0, 0) 
+    TextLabel.Size = UDim2.new(1, -135, 1, 0)
+    TextLabel.Position = UDim2.new(0, 48, 0, 0) 
     TextLabel.Parent = Top
 
     UICorner1.Parent = Top
@@ -662,7 +664,7 @@ function LexsHub:Window(GuiConfig)
     TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TextLabel1.BorderSizePixel = 0
     TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 104), 1, 0)
-    TextLabel1.Position = UDim2.new(0, 25 + TextLabel.TextBounds.X + 10, 0, 0)
+    TextLabel1.Position = UDim2.new(0, 48 + TextLabel.TextBounds.X + 10, 0, 0)
     TextLabel1.Parent = Top
 
     Close.Font = Enum.Font.SourceSans
