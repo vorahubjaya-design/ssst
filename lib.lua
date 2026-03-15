@@ -1025,7 +1025,7 @@ function Noxius:Window(GuiConfig)
         local Button = Instance.new("TextButton")
         Button.Parent = MainButton
         Button.Size = UDim2.new(1, 0, 1, 0)
-        Button.BackgroundTransparency = 0
+        Button.BackgroundTransparency = 1
         Button.Text = ""
 
         Button.MouseButton1Click:Connect(function()
