@@ -3,6 +3,10 @@ local HttpService = game:GetService("HttpService")
 
 _G.ConfigFolder = _G.ConfigFolder or "noxius/Config/"
 
+-- Noxius asset ID (langsung ada di lib, gak usah tambahin lagi di script lain)
+noxius_logo = "104845791898751"           -- logo title bar & notif
+noxius_toggle_ui_icon = "125641780017639" -- icon tombol toggle UI
+
 local function CheckFolders()
     local mainFolder = _G.ConfigFolder:split("/")[1]
     if not isfolder(mainFolder) then makefolder(mainFolder) end
@@ -493,8 +497,8 @@ function Noxius:Window(GuiConfig)
     GuiConfig.Color        = GuiConfig.Color or Color3.fromRGB(160, 80, 220)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
-    GuiConfig.Icon         = GuiConfig.Icon or "rbxassetid://104845791898751"
-    GuiConfig.Image       = GuiConfig.Image or "104845791898751"
+    GuiConfig.Icon         = GuiConfig.Icon or ("rbxassetid://" .. noxius_logo)
+    GuiConfig.Image       = GuiConfig.Image or noxius_toggle_ui_icon
 
     CURRENT_VERSION        = GuiConfig.Version
     -- LoadConfigFromFile()
@@ -1011,7 +1015,7 @@ function Noxius:Window(GuiConfig)
         MainButton.Size = UDim2.new(0, 40, 0, 40)
         MainButton.Position = UDim2.new(0, 20, 0, 100)
         MainButton.BackgroundTransparency = 1
-        MainButton.Image = "rbxassetid://" .. GuiConfig.Image
+        MainButton.Image = "rbxassetid://125641780017639"
         MainButton.ScaleType = Enum.ScaleType.Fit
 
         local UICorner = Instance.new("UICorner")
