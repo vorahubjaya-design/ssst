@@ -276,8 +276,8 @@ function CircleClick(Button, X, Y)
     end)
 end
 
-local LexsHub = {}
-function LexsHub:MakeNotify(NotifyConfig)
+local Noxius = {}
+function Noxius:MakeNotify(NotifyConfig)
     local NotifyConfig = NotifyConfig or {}
     NotifyConfig.Title = NotifyConfig.Title or "noxius"
     NotifyConfig.Description = NotifyConfig.Description or "Notification"
@@ -476,8 +476,8 @@ function LexsHub:MakeNotify(NotifyConfig)
     return NotifyFunction
 end
 
-function Lexs(msg, delay, color, title, desc)
-    return LexsHub:MakeNotify({
+function NoxiusNotify(msg, delay, color, title, desc)
+    return Noxius:MakeNotify({
         Title = title or "noxius",
         Description = desc or "Notification",
         Content = msg or "Content",
@@ -486,7 +486,7 @@ function Lexs(msg, delay, color, title, desc)
     })
 end
 
-function LexsHub:Window(GuiConfig)
+function Noxius:Window(GuiConfig)
     GuiConfig              = GuiConfig or {}
     GuiConfig.Title        = GuiConfig.Title or "noxius"
     GuiConfig.Footer       = GuiConfig.Footer or "noxius >:D"
@@ -494,14 +494,13 @@ function LexsHub:Window(GuiConfig)
     GuiConfig["Tab Width"] = GuiConfig["Tab Width"] or 120
     GuiConfig.Version      = GuiConfig.Version or 1
     GuiConfig.Icon         = GuiConfig.Icon or "rbxassetid://104845791898751"
-    GuiConfig.Theme       = GuiConfig.Theme or "16787098319"
 
     CURRENT_VERSION        = GuiConfig.Version
     -- LoadConfigFromFile()
 
     local GuiFunc = {}
 
-    local LexsHubGui = Instance.new("ScreenGui");
+    local NoxiusGui = Instance.new("ScreenGui");
     local DropShadowHolder = Instance.new("Frame");
     local DropShadow = Instance.new("ImageLabel");
     local Main = Instance.new("Frame");
@@ -528,10 +527,10 @@ function LexsHub:Window(GuiConfig)
     local ThemeImage = Instance.new("ImageLabel");
     local UICornerTheme = Instance.new("UICorner");
 
-    LexsHubGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    LexsHubGui.Name = "noxius"
-    LexsHubGui.ResetOnSpawn = false
-    LexsHubGui.Parent = game:GetService("CoreGui")
+    NoxiusGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    NoxiusGui.Name = "noxius"
+    NoxiusGui.ResetOnSpawn = false
+    NoxiusGui.Parent = game:GetService("CoreGui")
 
     DropShadowHolder.BackgroundTransparency = 1
     DropShadowHolder.BorderSizePixel = 0
@@ -544,10 +543,10 @@ function LexsHub:Window(GuiConfig)
     end
     DropShadowHolder.ZIndex = 0
     DropShadowHolder.Name = "DropShadowHolder"
-    DropShadowHolder.Parent = LexsHubGui
+    DropShadowHolder.Parent = NoxiusGui
 
-    DropShadowHolder.Position = UDim2.new(0, (LexsHubGui.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0,
-        (LexsHubGui.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
+    DropShadowHolder.Position = UDim2.new(0, (NoxiusGui.AbsoluteSize.X // 2 - DropShadowHolder.Size.X.Offset // 2), 0,
+        (NoxiusGui.AbsoluteSize.Y // 2 - DropShadowHolder.Size.Y.Offset // 2))
     DropShadow.Image = "rbxassetid://6015897843"
     DropShadow.ImageColor3 = Color3.fromRGB(15, 15, 15)
     DropShadow.ImageTransparency = 1
@@ -603,10 +602,9 @@ function LexsHub:Window(GuiConfig)
     TitleIcon.BackgroundTransparency = 1
     TitleIcon.BorderSizePixel = 0
     TitleIcon.AnchorPoint = Vector2.new(0, 0.5)
-    TitleIcon.Position = UDim2.new(0, 10, 0.5, 0)
-    TitleIcon.Size = UDim2.new(0, 32, 0, 32)
+    TitleIcon.Position = UDim2.new(0, 10, 0.5, 0) 
+    TitleIcon.Size = UDim2.new(0, 20, 0, 20)
     TitleIcon.Image = GuiConfig.Icon
-    TitleIcon.ScaleType = Enum.ScaleType.Fit
 
     local ImageWrapper = Instance.new("Frame")
     ImageWrapper.Name = "ImageWrapper"
@@ -624,7 +622,7 @@ function LexsHub:Window(GuiConfig)
     ThemeImage.Position = UDim2.new(1, 0, 1, 0)
     ThemeImage.Size = UDim2.new(0.55, 0, 1.0, 0) -- ga terlalu gede
     ThemeImage.ZIndex = 0
-    ThemeImage.Image = "rbxassetid://16787098319"
+    ThemeImage.Image = "rbxassetid://104845791898751"
     ThemeImage.ImageTransparency = 0.45
     ThemeImage.ScaleType = Enum.ScaleType.Fit
 
@@ -648,8 +646,8 @@ function LexsHub:Window(GuiConfig)
     TextLabel.BackgroundTransparency = 0.999
     TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TextLabel.BorderSizePixel = 0
-    TextLabel.Size = UDim2.new(1, -135, 1, 0)
-    TextLabel.Position = UDim2.new(0, 48, 0, 0) 
+    TextLabel.Size = UDim2.new(1, -135, 1, 0) 
+    TextLabel.Position = UDim2.new(0, 35, 0, 0) 
     TextLabel.Parent = Top
 
     UICorner1.Parent = Top
@@ -664,7 +662,7 @@ function LexsHub:Window(GuiConfig)
     TextLabel1.BorderColor3 = Color3.fromRGB(0, 0, 0)
     TextLabel1.BorderSizePixel = 0
     TextLabel1.Size = UDim2.new(1, -(TextLabel.TextBounds.X + 104), 1, 0)
-    TextLabel1.Position = UDim2.new(0, 48 + TextLabel.TextBounds.X + 10, 0, 0)
+    TextLabel1.Position = UDim2.new(0, 25 + TextLabel.TextBounds.X + 10, 0, 0)
     TextLabel1.Parent = Top
 
     Close.Font = Enum.Font.SourceSans
@@ -869,7 +867,7 @@ function LexsHub:Window(GuiConfig)
 
     function GuiFunc:DestroyGui()
         if CoreGui:FindFirstChild("noxius") then
-            LexsHubGui:Destroy()
+            NoxiusGui:Destroy()
         end
     end
 
@@ -980,7 +978,7 @@ function LexsHub:Window(GuiConfig)
             end
             ScriptLoaded = false
             NoclipEnabled = false
-            if LexsHubGui then LexsHubGui:Destroy() end
+            if NoxiusGui then NoxiusGui:Destroy() end
             if game.CoreGui:FindFirstChild("ToggleUIButton") then
                 game.CoreGui.ToggleUIButton:Destroy()
             end
@@ -2864,4 +2862,5 @@ function LexsHub:Window(GuiConfig)
     return Tabs
 end
 
-return LexsHub
+Noxius.Notify = NoxiusNotify
+return Noxius
